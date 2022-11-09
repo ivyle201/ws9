@@ -1,0 +1,1000 @@
+   17  exit
+   18  tmux attach -t ws7
+   19  ls
+   20  cat ws7.txt
+   21  cd ws7
+   22  grep "076450861X" ../amazon_reviews_us_Books_v1_02.tsv | cut -f14 
+   23  cd
+   24  la
+   25  ls
+   26  mv ws7.txt ws7
+   27  cd ws7
+   28  ls
+   29  rm ws7.txt
+   30  vi ws7.txt
+   31  cat ws7.txt
+   32  echo "# ws7" >> README.md
+   33  git init
+   34  git status
+   35  git add ws7.txt cmds.log filtered_cut14_amazon_review_body_076450861X.tsv README.md
+   36  git commit -m "ws7 commit"
+   37  git branch -M main
+   38  git remote add origin https://github.com/ivyle201/ws7.git
+   39  git push -u origin main
+   40  vi subtree.txt
+   41  source subtree.txt
+   42  ./subtree.txt
+   43  chmod 777 subtree.txt
+   44  ./subtree.txt
+   45  vi subtree.txt 
+   46  ./subtree.txt
+   47  vi subtree.txt 
+   48  ./subtree.txt
+   49  vi subtree.txt 
+   50  PS1=$hostname
+   51  PS1=`hostname | sed 's/\..*//'`; export PS1
+   52  exit
+   53  $HOSTNAME
+   54  echo $HOSTNAME
+   55  PS1=$HOSTNAME
+   56  exit
+   57  PS1=`hostname | sed 's/\..*//'`; export PS1
+   58  vi test1
+   59  ./test1
+   60  chmod 777 test1
+   61  ./test1
+   62  vi test1
+   63  ./test1
+   64  vi test1
+   65  ./test1
+   66  read a b c
+   67  echo $a
+   68  echo $b
+   69  echo $c
+   70  echo ${x:"message"}
+   71  echo ${a: "message"}
+   72  echo ${b:"message"}
+   73  echo ${b:?"message"}
+   74  vi test2
+   75  ./test
+   76  ./test2
+   77  chmod 777 test2
+   78  ./test2
+   79  vi test3
+   80  ./test3
+   81  chmod 777 test3
+   82  ./test3
+   83  vi test4
+   84  vi test3
+   85  vi test4
+   86  ls
+   87  cat test3
+   88  vi test4
+   89  vi marks.txt
+   90  ./test4 < marks.txt
+   91  chmod 777 marks.txt
+   92  ./test4 < marks.txt
+   93  chmod 777 test4
+   94  ./test4 < marks.txt
+   95  vi test
+   96  vi test4
+   97  ./test4 < marks.txt
+   98  vi test4
+   99  ./test4 < marks.txt
+  100  ls
+  101  cat test4
+  102  vi test4
+  103  cat test4
+  104  source test4 < marks.txt 
+  105  vi test4
+  106  source test4 < marks.txt 
+  107  vi test4
+  108  source test4 < marks.txt 
+  109  echo Total number of input: $#
+  110  echo First input: $1
+  111  echo Second input: $2
+  112  ls
+  113  vi test5
+  114  ./test5 2
+  115  chmod 777 test5
+  116  ./test5 2
+  117  vi test5
+  118  ./test5 2
+  119  ./test 4
+  120  ./test5 4
+  121  ./test5 3
+  122  ./test5
+  123  vi test5
+  124  vi test5 
+  125  ./test5
+  126  ./test5 0
+  127  ./test5 1
+  128  ./test5 5
+  129  ./test5 4
+  130  vi test6
+  131  ls
+  132  cat test5
+  133  vi test6
+  134  chmod 777 test6
+  135  ./ test6
+  136  ./test6
+  137  ./test6 3
+  138  vi test6
+  139  ./test6 3
+  140  vi test6
+  141  ./test6 3
+  142  vi test66
+  143  rm test6
+  144  ls
+  145  vi test6
+  146  ./test6 4
+  147  chmod 777 test6
+  148  ./test6 4
+  149  vi test6
+  150  ./test6 4
+  151  ./test6 4 1
+  152  ./test6 4 
+  153  vi test6
+  154  ./test6 4 
+  155  vi test6
+  156  chmod 777 test6
+  157  ./test6 4 
+  158  vi test6
+  159  ./test6 4 
+  160  ./test6 4 5
+  161  ./test6
+  162  vi test6
+  163  ./test6
+  164  ./test6 4
+  165  vi test7
+  166  chmod 777 test7
+  167  ./test7
+  168  vi test7
+  169  ./test7
+  170  ls
+  171  head -n 10 amazon_reviews_us_Books_v1_02.tsv 
+  172  tmux new-sesson -t ws8
+  173  tmux new-session -t ws8
+  174  ls
+  175  vi test7
+  176  ./test7
+  177  cat test7
+  178  cat test7 8
+  179  ./test7 
+  180  ./test7 8
+  181  ./test7 2
+  182  vi test7
+  183  ./test7 
+  184  vi test7
+  185  ./test7 
+  186  ./test7 Tuesday
+  187  vi test7
+  188  vi test7 Sunday
+  189  ./test7 Sunday
+  190  ./test7
+  191  mkdir ws8
+  192  cd ws8
+  193  awk -F "\t" '$12=="Y" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 100 > verified.txt
+  194  awk -F "\t" '$12=="N" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 100 > unverified.txt
+  195  sed -r 's/\[.+\]/ /g; s/[\.,;"\/\(\)]/ /g; s/<\w+ *\/?>//g' verified.txt > filtered_verified.txt
+  196  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" verified.txt > filtered_verified.txt 
+  197  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" unverified.txt > filtered_unverified.txt 
+  198  vi count_words_awk_script
+  199  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10
+  200  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  201  awk -f count_words_awk_script filtered_unverified.txt | sort -k2 -nr | head -n 10 > top10_words_unverified_review_body.txt
+  202  head top10_words_unverified_review_body.txt 
+  203  exit
+  204  tmux attach -t ws8
+  205  cd ws8
+  206  cat unverified.txt 
+  207  sed -r 's/\[.+\]/ /g; s/[\.,;"\/\(\):]/ /g; s/<\w+ *\/?>//g' verified.txt > filtered_unverified.txt
+  208  head -n 100 filtered_unverified.txt 
+  209  sed -r "s/<\w+ *\/?>//g; s/[^\w']/ /" unverified.txt > filtered_unverified.txt
+  210  head filtered_unverified.txt 
+  211  sed -r "s/<\w+ *\/?>//g; s/[^\w']/ /g" unverified.txt > filtered_unverified.txt
+  212  head filtered_unverified.txt 
+  213  sed -r "s/<\w+ *\/?>//g; s/[^\w+']/ /g" unverified.txt > filtered_unverified.txt
+  214  head filtered_unverified.txt 
+  215  sed -r "s/[^\w+']/ /g" unverified.txt > filtered_unverifieåd.txt
+  216  head filtered_unverified.txt 
+  217  sed -r "s/[^\w+']/ /g" unverified.txt > filtered_unverifieåd.txt
+  218  sed -r 's/[^\w]/ /g' unverified.txt > filteredå_unverifieåd.txtå
+  219  sed -r 's/[^\w]/ /g' unverified.txt > filteredå_unverifieåd.txt
+  220  sed -r 's/[^\w]/ /g' unverified.txt > filtered_unverified.txt
+  221  head filtered_unverified.txt 
+  222  sed -r 's/[^a-zA-Z]/ /g' unverified.txt > filtered_unverified.txt
+  223  head filtered_unverified.txt 
+  224  sed -r "s/[^a-zA-Z']/ /g" unverified.txt > filtered_unverified.txt
+  225  head filtered_unverified.txt 
+  226  sed -r "s/[^a-zA-Z']/ /g" unverified.txt > filtered_unverified.txt
+  227  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" unverified.txt | head -n 15
+  228  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" unverified.txt | 
+  229  tmux attach -t ws8
+  230  ls
+  231  cd temp
+  232  ls
+  233  cat words.txt 
+  234  sed 's/a/A/g' 's/i/I/g' words.txt 
+  235  sed -e 's/a/A/g' -e 's/i/I/g' words.txt 
+  236  sed -d 's/a/A/g' words.txt 
+  237  sed 's/a/A/g' words.txt 
+  238  sed -n 's/a/A/g' words.txt 
+  239  sed -n 's/a/A/g p' words.txt 
+  240  sed -n '/a/d' words.txt 
+  241  sed '/a/d' words.txt 
+  242  sed '/1/d' words.txt 
+  243  cat words.txt 
+  244  sed '/1 d' words.txt 
+  245  sed '1 d' words.txt 
+  246  sed '$ d' words.txt 
+  247  sed '1 d' words.txt 
+  248  sed '$ d' words.txt 
+  249  sed '2$ d' words.txt 
+  250  sed '$2 d' words.txt 
+  251  sed '$-2 d' words.txt 
+  252  sed '1,5 d' words.txt 
+  253  sed '1,4 d' words.txt 
+  254  sed '1,3 d' words.txt 
+  255  sed '$,3 d' words.txt 
+  256  cat words.txt 
+  257  sed 's/a/A/g ; s/i/I/g' words.txt 
+  258  sed '/a/! d' words.txt 
+  259  emacs test3.sh
+  260  nano test3.sh
+  261  chmod u+x test3.sh 
+  262  ./test3.sh 
+  263  cd /
+  264  find -name emacs .
+  265  find . -name emacs
+  266  cd
+  267  ls
+  268  gunzip emacs-28.2.tar.gz 
+  269  tar -xf emacs-28.2.tar 
+  270  ls
+  271  cd emacs-28.2/
+  272  ./configure --prefix=/home/abhi/emacs --bindir=/home/abhi/bin
+  273  ./configure --prefix=/home/vivian/emacs --bindir=/home/vivian/bin
+  274  make --with-gnutls=ifavailable && make --with-gnutls=ifavailable install
+  275  ./configure --prefix=/home/vivian/emacs --bindir=/home/vivian/bin --with-gnutls=ifavailable
+  276  cd ..
+  277  ls
+  278  rm emacs-28.2.tar 
+  279  rm -rf emacs-28.2/
+  280  ls
+  281  cd temp
+  282  ls
+  283  nano lines.txt
+  284  awk '$2=="def"'
+  285  awk '$2=="def"' lines.txt 
+  286  awk '!$2=="def"' lines.txt 
+  287  awk '/$2=="def"/' lines.txt 
+  288  awk '$2=="def"' lines.txt 
+  289  awk '{print foo["a"]}' lines.txt 
+  290  awk '{print "."foo["a"]"."}' lines.txt 
+  291  echo ..
+  292  awk '{if(foo["a"]) print "no"' lines.txt 
+  293  awk '{if(foo["a"]) print "no";' lines.txt 
+  294  awk '{if(foo["a"]) { print "no"; }' lines.txt 
+  295  awk '{if (foo["a"]) { print "no"; }' lines.txt 
+  296  awk '{if (foo["a"] == '') { print "no"; }' lines.txt 
+  297  awk '{if (foo["a"] == "") { print "no"; }' lines.txt 
+  298  awk '{ if (foo["a"] == "") { print "no"; }}' lines.txt 
+  299  awk '{ if (foo["a"] == 0) { print "no"; }}' lines.txt 
+  300  awk '{ if (foo["a"]) { print "no"; }}' lines.txt 
+  301  awk '{ if (!foo["a"]) { print "no"; }}' lines.txt 
+  302  awk '{ for (i=0;i<NF;i++) { print $i}}' lines.txt
+  303  awk '{ for (i=1;i<NF;i++) { print $i;print '.'}}' lines.txt
+  304  awk '{ for (i=1;i<NF;i++) { print $i;print "."}}' lines.txt
+  305  awk '{ for (i=1;i<=NF;i++) { print $i;print "."}}' lines.txt
+  306  awk '{ for (i=1;i<=NF;i++) { print $i"."}}' lines.txt
+  307  ls
+  308  cd ..
+  309  cd ws8/
+  310  ls
+  311  awk -f awktest word
+  312  nano awktest 
+  313  awk -f awktest word
+  314  awk -f awktest word
+  315  nano awktest 
+  316  awk -f awktest word
+  317  cd ws8
+  318  ls -l
+  319  cd ..
+  320  ls
+  321  cat ws8.txt
+  322  ls
+  323  more ws8.txt
+  324  ls
+  325  cp ws8.txt ws8_temp.txt
+  326  ls -l
+  327  cd /
+  328  ls
+  329  cd mnt/
+  330  ls
+  331  cd scratch/
+  332  ls
+  333  cd vivian
+  334  pwd
+  335  cd ~
+  336  ln -s /mnt/scratch/vivian/
+  337  ls
+  338  cd temps
+  339  cd temp_graph/
+  340  ls
+  341  cd ..
+  342  cd temp
+  343  ls
+  344  rm *.*
+  345  cd ..
+  346  ln -s /mnt/scratch/vivian/
+  347  ls
+  348  cp ws8.txt /mnt/scratch/vivian/ws8_temp.txt
+  349  cd /mnt/scratch/vivian/ws8_temp.txt
+  350  cd /mnt/scratch/vivian/
+  351  ls
+  352  ls -l
+  353  ls -l .
+  354  chmod a-r .
+  355  ls -l
+  356  ls -l .
+  357  chmod u+r .
+  358  ls -l .
+  359  chmod o-r .
+  360  ls -l .
+  361  man chmod
+  362  chmod o-r /mnt/scratch/vivian
+  363  ls -l .
+  364  ls -l /mnt/scratch/vivian/
+  365  cd ..
+  366  ls -l | grep vivian
+  367  chmod o-x vivian
+  368  ls -l | grep vivian
+  369  chmod g-x vivian
+  370  ls -l | grep vivian
+  371  cd vivian
+  372  ls
+  373  more ws8_temp.txt 
+  374  mkdir ws8
+  375  mv *.txt ws8
+  376  cd ws8
+  377  ls
+  378  ls ~/ws8
+  379  ls ~
+  380  head -n 1 ~/amazon_reviews_us_Books_v1_02.tsv
+  381  head -n 1 ~/amazon_reviews_us_Books_v1_02.tsv | tr '\t' '\n
+  382  head -n 1 ~/amazon_reviews_us_Books_v1_02.tsv | tr '\t' '\n'
+  383  head -n 1 ~/amazon_reviews_us_Books_v1_02.tsv | tr '\t' '\n' | grep . -n
+  384  pwd
+  385  ls
+  386  awk -F '\t' '$12=="Y" {print $14}' ~/amazon_reviews_us_Books_v1_02.tsv | head -n 100 > verified.txt
+  387  head verified.txt 
+  388  awk -F '\t' '$12=="N" {print $14}' ~/amazon_reviews_us_Books_v1_02.tsv | head -n 100 > unverified.txt
+  389  head unverified.txt 
+  390  echo '<foo/><blah ><boo/>' > html.html
+  391  sed -r "s/<\w+ *\/?>//g' | html.html
+  392  sed -r "s/<\w+ *\/?>//g" | html.html
+  393  sed -r "s/<\w+ *\/?>//g" html.html
+  394  echo '<foo/><blah ><boo/>12<12>' > html.html
+  395  sed -r "s/<\w+ *\/?>//g" html.html
+  396  sed -r "s/\w//g" html.html
+  397  sed -r 's/\w//g' html.html
+  398  sed -r "s/[\w]//g" html.html
+  399  head verified.txt 
+  400  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" verified.txt > filtered_verified.txt 
+  401  head filtered_verified.txt 
+  402  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" unverified.txt > filtered_uverified.txt 
+  403  more ws8_temp.txt 
+  404  cat ~/ws8/count_words_awk_script 
+  405  awk -f ~/ws8/count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10
+  406  cat ~/ws8/top10_words_unverified_review_body.txt
+  407  ls
+  408  cd ..
+  409  mv ws8 ws8_bak
+  410  cp -r ~/ws8 ws8
+  411  cd ws8
+  412  ls
+  413  nano ws8.txt
+  414  vi testcount
+  415  awk -f testcount filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  416  cat top10_words_verified_review_body.txt 
+  417  ls
+  418  rm testcount 
+  419  ls
+  420  rm ws8.txt
+  421  vi ws8.txt
+  422  cat ws8.txt
+  423  $HOME
+  424  PWD
+  425  pwd
+  426  cd
+  427  ls
+  428  mv amazon_reviews_us_Books_v1_02.tsv /mnt/scratch/vivian/
+  429  ls /mnt/scratch/vivian/
+  430  rm -rf /mnt/scratch/vivian/ws8_bak/
+  431  ls /mnt/scratch/vivian/
+  432  ls
+  433  tmux attach -t ws8
+  434  cd /mnt/scratch/vivian/
+  435  ls
+  436  cd ws8
+  437  ls
+  438  more cmds.log 
+  439  echo "# ws8" >> README.md
+  440  git init
+  441  git add README.md
+  442  ls
+  443  git status
+  444  git add cmds.log
+  445  git add ws8.txt
+  446  ls
+  447  rm filteredå_unverifieåd.txtå
+  448  rm filteredå_unverifieåd.txt
+  449  cat word 
+  450  rm word
+  451  rm filtered_unverifieåd.txt
+  452  ls -l
+  453  git status
+  454  rm awktest
+  455  git status
+  456  git add top10*
+  457  git status
+  458  git commit -m 'worksheet 8 commit'
+  459  git status
+  460  git branch -M main
+  461  git remote add origin https://github.com/ivyle201/ws8.git
+  462  git push -u origin main
+  463  git config --global user.name ivyle201
+  464  ls
+  465  crontab -e
+  466  pwd
+  467  cd
+  468  ls
+  469  pwd
+  470  cd /mnt/scratch/vivian
+  471  ls
+  472  cd ws8
+  473  ls
+  474  tmux attach -t ws8
+  475  cd /mnt/scratch/vivian/ws8
+  476  awk -F "\t" '$12=="Y" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 10000 > verified.txt
+  477  awk -F "\t" '$12=="N" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 10000 > unverified.txt
+  478  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b(that|for|as|are|not|on|but|his|with|the|and|of|to|a|is|this|i|or|if|in|it)\b//ig" verified.txt > filtered_verified.txt
+  479  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b(that|for|as|are|not|on|but|his|with|the|and|of|to|a|is|this|i|or|if|in|it)\b//ig" unverified.txt > filtered_unverified.txt
+  480  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  481  cat top10_words_verified_review_body.txt 
+  482  awk -f count_words_awk_script filtered_unverified.txt | sort -k2 -nr | head -n 10 > top10_words_unverified_review_body.txt
+  483  cat top10_words_unverified_review_body.txt 
+  484  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b\w{1,3}\b/ /g" verified.txt > filtered_verified.txt 
+  485  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b\w{1,3}\b/ /g" unverified.txt > filtered_unverified.txt 
+  486  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  487  cat top10_words_verified_review_body.txt 
+  488  exit
+  489  cd /mnt/scratch/vivian/ws8
+  490  tmux attach -t ws8
+  491  cd /mnt/scratch/vivian/
+  492  ls
+  493  cd ws8
+  494  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" verified.txt | wk -f count_words_awk_script | sort -k2 -nr | head -n 10
+  495  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g" verified.txt | awk -f count_words_awk_script | sort -k2 -nr | head -n 10
+  496  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/[a-zA-Z']{1,3}//g" verified.txt | awk -f count_words_awk_script | sort -k2 -nr | head -n 10
+  497  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b[a-zA-Z']{1,3}\b//g" verified.txt | awk -f count_words_awk_script | sort -k2 -nr | head -n 10
+  498  cd /mnt/scratch/vivian
+  499  cd ws8
+  500  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b[a-zA-Z']{1,3}\b//g" verified.txt > filtered_verified.txt 
+  501  wc -l verified.txt 
+  502  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b[a-zA-Z']{1,3}\b//g" unverified.txt > filtered_unverified.txt
+  503  wc -l unverified.txt 
+  504  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  505  cat top10_words_verified_review_body.txt
+  506  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_unverified_review_body.txt
+  507  cat top10_words_unverified_review_body.txt 
+  508  awk -F "\t" '$12=="Y" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 10000 > verified.txt
+  509  awk -F "\t" '$12=="N" {print $14}' ../amazon_reviews_us_Books_v1_02.tsv | head -n 10000 > unverified.txt
+  510  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b[a-zA-Z']{1,3}\b//g" verified.txt > filtered_verified.txt 
+  511  sed -r "s/<\w+ *\/?>//g; s/[^a-zA-Z']/ /g; s/\b[a-zA-Z']{1,3}\b//g" unverified.txt > filtered_unverified.txt
+  512  awk -f count_words_awk_script filtered_verified.txt | sort -k2 -nr | head -n 10 > top10_words_verified_review_body.txt
+  513  awk -f count_words_awk_script filtered_unverified.txt | sort -k2 -nr | head -n 10 > top10_words_unverified_review_body.txt
+  514  cat top10_words_verified_review_body.txt
+  515  cat top10_words_unverified_review_body.txt
+  516  git status
+  517  touch ws8.txt
+  518  nano ws8.txt
+  519  mv ws8.txt ws8.bak.txt
+  520  nano ws8.txt
+  521  git status
+  522  git add ws8.txt 
+  523  git add top10*
+  524  git status
+  525  git commit -m 'updating assignment to remove small words'
+  526  git push
+  527  history | more
+  528  ls
+  529  history > cmds.log
+  530  git status
+  531  git add cmds.log
+  532  git status
+  533  git commit -m 'updating cmds.log'
+  534  git push
+  535  cd /mnt/scratch/vivian/ws8
+  536  ls
+  537  vi loop
+  538  ./loop
+  539  chmod 700 loop
+  540  ./loop
+  541  vi loop
+  542  ./loop
+  543  vi loop
+  544  ./loop
+  545  vi loop
+  546  ./loop
+  547  man echo
+  548  cd /mnt/scratch/vivian/ws8
+  549  vi loop
+  550  ./loop
+  551  vi loop
+  552  ./loop
+  553  vi loop
+  554  ./loop
+  555  vi loop
+  556  ./loop
+  557  i=1
+  558  echo $i
+  559  echo "$i"
+  560  echo '$i'
+  561  vi loop
+  562  ./loop
+  563  vi loop
+  564  ./loop 3
+  565  vi loop
+  566  ./loop 3
+  567  vi loop
+  568  ./loop
+  569  vi loop
+  570  ./loop
+  571  vi loop
+  572  ./loop
+  573  vi loop
+  574  ./loop
+  575  vi loop
+  576  ./loop
+  577  vi loop
+  578  ./loop
+  579  vi loop
+  580  ./loop
+  581  vi loop
+  582  ./loop
+  583  vi loop
+  584  ./loop
+  585  vi loop
+  586  ./loop
+  587  vi loop
+  588  ./loop
+  589  vi loop
+  590  ./loop
+  591  vi loop
+  592  ./loop
+  593  vi loop
+  594  vi loopbreak
+  595  ./loopbreak
+  596  chmod loopbreak
+  597  chmod 777 loopbreak 
+  598  ./loopbreak
+  599  vi loopbreak
+  600  ls
+  601  cat loop
+  602  nano loop
+  603  loop
+  604  ./loop
+  605  nano loop
+  606  ./loop
+  607  ls
+  608  vi lookbreak
+  609  ./loopb
+  610  chmod 777 lookbreak 
+  611  ./loopb
+  612  ./loopbreak
+  613  cat loopbreak 
+  614  vi lookbreak 
+  615  vi loopbreak 
+  616  rm lookbreak 
+  617  vi loopbreak 
+  618  ./loopbreak 
+  619  vi loopbreak 
+  620  ./loopbreak 
+  621  vi loopbreak 
+  622  ./loopbreak 
+  623  vi loopbreak 
+  624  ./loopbreak 
+  625  vi loopbreak 
+  626  ./loopbreak 
+  627  vi loopbreak 
+  628  ./loopbreak 
+  629  vi loopbreak 
+  630  vi case
+  631  ./case
+  632  chmod 777 case
+  633  ./case
+  634  vi case
+  635  ./case
+  636  vi case
+  637  ./case
+  638  vi case
+  639  ./case
+  640  vi case
+  641  ./case
+  642  vi case
+  643  ./case
+  644  vi case
+  645  ./case
+  646  vi case
+  647  ./case
+  648  vi case
+  649  ./case
+  650  vi parentheses
+  651  cd /mnt/scratch/vivian/ws8
+  652  ls
+  653  loop
+  654  mv loop loop.sh
+  655  loop.sh
+  656  ./loop
+  657  chmod +x loop.sh
+  658  ./loop
+  659  chmod +rwx loop.sh
+  660  ./loop
+  661  ./loop.sh
+  662  chmod +x loop.sh
+  663  ./loop.sh
+  664  sed -n '/book/' verified.txt 
+  665  sed -n '/book/p' verified.txt 
+  666  sed '/book/p' verified.txt 
+  667  vi sedtest
+  668  sed -n '/books/p' sedtest
+  669  sed -n '/book/p' sedtest
+  670  sed '/book/p' sedtest
+  671  sed '3 d' sedtest
+  672  cat sedtest
+  673  sed -i -n '3 d' sedtest
+  674  cat sedtest 
+  675  vi sedtest 
+  676  cat sedtest 
+  677  sed '$ d' sedtest 
+  678  sed 's/book/! d' sedtest 
+  679  sed '/bookk/! d' sedtest 
+  680  cat sedtest 
+  681  sed '/book/! d' sedtest 
+  682  sed '/book/ s/no/yes/' sedtest 
+  683  sed 's/book/hook/' sedtest sedtest2
+  684  sed 's/book/hook/g' sedtest sedtest2
+  685  ls
+  686  touch sedtest2
+  687  sed 's/book/hook/g' sedtest sedtest2
+  688  cat sedtest2
+  689  sed 's/hook/book/g' sedtest sedtest2
+  690  cat sedtest 
+  691  sed 's/hook/book/g' sedtest > sedtest2
+  692  cat sedtest2
+  693  sed '/book/ d' sedtest
+  694  vi sed_insert
+  695  sed -f sed_insert sedtest
+  696  sed -f sed_insert sedtest | grep book A2 B2
+  697  sed -f sed_insert sedtest | grep -n book -A2 -B2
+  698  sed -n '/book/ =' sedtest
+  699  sed '/book/ =' sedtest
+  700  vi sed_append
+  701  sed -f sed_append sedtest
+  702  vi sed_append 
+  703  sed -f sed_append sedtest
+  704  vi sed_append 
+  705  sed -f sed_append sedtest
+  706  vi sed_append 
+  707  sed -f sed_append sedtest
+  708  vi sed_append 
+  709  sed -f sed_append sedtest
+  710  cat sedtest
+  711  sed '3q' sedtest
+  712  sed 
+  713  sed '/book/q' sedtest
+  714  cat sedtest
+  715  sed '/no/ q' sedtest
+  716  sed '/book/ w newfile' sedtest
+  717  ls
+  718  cat newfile
+  719  sed '/book/hook/ w newfile' sedtest
+  720  sed '/book/hook/w newfile' sedtest
+  721  sed 's/book/hook/w newfile' sedtest
+  722  sed 's/book/hook/ w newfile' sedtest
+  723  vi sed_next
+  724  sed -f sed_next sedtest
+  725  vi sed_next 
+  726  sed -f sed_next sedtest
+  727  vi sed_next 
+  728  sed -f sed_next sedtest
+  729  vi sed_next 
+  730  sed -f sed_next sedtest
+  731  sed -n '/o \{1,3\}/p' sedtest
+  732  sed -n '/o \{1,2\}/p' sedtest
+  733  sed -n '/o \{1,2}/p' sedtest
+  734  sed -n '/o \{2,3\}/p' sedtest
+  735  sed -n '/o \{1,2\}/p' sedtest
+  736  sed -n '/o\{1,2\}/p' sedtest
+  737  ls
+  738  vi loop
+  739  vi loopbreak
+  740  ./loopbreak
+  741  vi loopbreak 
+  742  vi for
+  743  ./for
+  744  chmod 777 for
+  745  ./for
+  746  cd /mnt/scratch/vivian/ws8
+  747  ls
+  748  cd
+  749  practice
+  750  mkdir practic
+  751   /mnt/scratch/vivian
+  752  cd  /mnt/scratch/vivian
+  753  mkdir practice
+  754  cd ws8
+  755  ls
+  756  mv for loopbreak sed_nex newfile sed_append sed_insert sedtest sedteest2 case loop.sh ../practice
+  757  mv for loopbreak sed_next newfile sed_append sed_insert sedtest sedteest2 case loop.sh ../practice
+  758  mv for loopbreak ../practice
+  759  cd /mnt/scratch/vivian/ws8
+  760  tmux new-session -t ws8
+  761  vi pronouns.txt
+  762  ls
+  763  vi pronouns_prepositions.txt 
+  764  rm pronouns.txt
+  765  rm prepositions.txt
+  766  more pronouns_prepositions.txt 
+  767  ls
+  768  vi pronouns_prepositions.txt 
+  769  tmux attach -t ws8
+  770  tmux attach session -t ws8
+  771  tmux ls
+  772  tmux attach -t ws8
+  773  tmux attach -t ws8-6
+  774  cd /mnt/scratch/vivian
+  775  ls
+  776  cd ws8
+  777  ls
+  778  mv sedtest2 ../ws8
+  779  find ./ -f -name sedtest2 
+  780  find ./ f -name sedtest2 
+  781  find ./ -type f -name sedtest2
+  782  find . -type f -name sedtest2
+  783  find . -n -type f -name sedtest2
+  784  find . -i -type f -name sedtest2
+  785  grep -winr "sedtest2"
+  786  cd 
+  787  ls
+  788  cd /mnt/scratch/vivian
+  789  ls
+  790  cd practice
+  791  ls
+  792  mv ../ws8/sedtest2 .
+  793  ls
+  794  cd ../ws8
+  795  ls
+  796  vi pronouns
+  797  vi prepositions
+  798  cd ../practice
+  799  ls
+  800  cat newfile
+  801  cat sedtest
+  802  cat sedtest2
+  803  echo hello > sedtest2
+  804  cat sedtest2
+  805  echo booksbooworkpatternexpressionno bookshello world
+  806  vi sedtest2
+  807  cat sedtest2
+  808  fgrep -f sedtest sedtest2
+  809  fgrep -f -v sedtest sedtest2
+  810  fgrep -f sedtest -v sedtest2
+  811  cat sedtest
+  812  cat sedtest2
+  813  fgrep -f sedtest -vw sedtest2
+  814  cd ../ws8
+  815  ls
+  816  fgrep -f pronouns -vw verified.txt > head -n 1
+  817  mv pronouns pronouns.txt
+  818  mv prepositions prepositions.txt
+  819  ls
+  820  fgrep -f pronouns.txt -vw verified.txt | head -n 1
+  821  fgrep -f pronouns.txt -vw verified.txt > fgrep_invert_pronouns_verified.txt
+  822  grep "he" fgrep_invert_pronouns_verified.txt 
+  823  grep -w "he" fgrep_invert_pronouns_verified.txt 
+  824  fgrep -f prepositions.txt -vw verified.tx > fgrep_invert_prepositions_verified.txt
+  825  grep -w "he" fgrep_invert_pronouns_verified.txt 
+  826  fgrep -f prepositions.txt -vw fgrep_invert_pronouns_verified.txt > fgrep_invert_prepositions_fgrep_invert_pronouns_verified.txt
+  827  grep -w "with" fgrep_invert_prepositions_fgrep_invert_pronouns_verified.txt 
+  828  ls
+  829  rm fgrep_invert_prepositions_verified.txt
+  830  ls
+  831  tmux attach -t ws8-6
+  832  shuf
+  833  which shuf
+  834  man shuf
+  835  shuf -i 1-1000 -n 10
+  836  cd vivian
+  837  ls
+  838  vi randtest
+  839  vi randtest 
+  840  vi randtest2
+  841  vi randtest3
+  842  echo $(($RANDOM %10))
+  843  echo $RANDOM
+  844  ls
+  845  mv test*.txt practice/
+  846  mv test* practice/
+  847  ls
+  848  cd /mnt/scratch/vivian
+  849  ls
+  850  cd practice
+  851  ls
+  852  cat sedtest2
+  853  vi sedtest2
+  854   cd
+  855  ln -s /mnt/scratch/vivian
+  856  cd vivian
+  857  ls
+  858  cd ws8
+  859  ls
+  860  cd backupdata
+  861  ls
+  862  ln pronouns_prepositions.txt ../ws8/vivian/hardLink_pronouns_prepositions.txt
+  863  ln pronouns_prepositions.txt ../ws8/hardLink_pronouns_prepositions.txt
+  864  ln pronouns_prepositions.txt ../../ws8/hardLink_pronouns_prepositions.txt
+  865  cd vivian
+  866  cd
+  867  cd vivian
+  868  ls
+  869  cd practice/
+  870  ks
+  871  ls
+  872  cd ../ws8
+  873  mv hardLink_pronouns_prepositions.txt ../
+  874  cd ..
+  875  ls
+  876  vi randtest
+  877  chmod 700 randtest
+  878  ./randtest 10 hardLink_pronouns_prepositions.txt
+  879  ./randtest 5 hardLink_pronouns_prepositions.txt
+  880  chmod 700 randtest2
+  881  ./randtest2 5 hardLink_pronouns_prepositions.txt
+  882  ./randtest2
+  883  ./randtest2 20 hardLink_pronouns_prepositions.txt | wc -l
+  884  ./randtest2 5 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  885  ./randtest2 1 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  886  ls
+  887  wc -l amazon_reviews_us_Books_v1_02.tsv 
+  888  ./randtest2 1 amazon_reviews_us_Books_v1_02.tsv | head -n 2
+  889  ./randtest2 1 amazon_reviews_us_Books_v1_02.tsv | head -n 1
+  890  ./randtest2 1 amazon_reviews_us_Books_v1_02.tsv | head -n 1 > head1line
+  891  ls
+  892  cat head1line 
+  893  ls
+  894  ./randtest2 1 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  895  cd vivian
+  896  ls
+  897  rm headline
+  898  rm head1line
+  899  vi randtest2
+  900  ./randtest2 5 hardLink_pronouns_prepositions.txt
+  901  ls
+  902  cd practice/
+  903  ls
+  904  mv sedtest2 ../
+  905  cd ..
+  906  ls
+  907  ./randtest2 5 sedtest2 
+  908  cat sedtest2
+  909  ./randtest2 2 sedtest2 
+  910  vi shuf
+  911  ./shuf 10 hardLink_pronouns_prepositions.txt
+  912  chmod 700 shuf
+  913  ./shuf 10 hardLink_pronouns_prepositions.txt
+  914  ./shuf 1 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  915  ./shuf 1 amazon_reviews_us_Books_v1_02.tsv | head -n 1
+  916  time ./shuf 1 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  917  time ./shuf 1 amazon_reviews_us_Books_v1_02.tsv | head -n 1
+  918  time ./randtest 1 amazon_reviews_us_Books_v1_02.tsv | head -n 1
+  919  wc -l hardLink_pronouns_prepositions.txt 
+  920  ./shuf 10 hardLink_pronouns_prepositions.txt |wc -l
+  921  time ./randtest 1 amazon_reviews_us_Books_v1_02.tsv | w
+  922  head -n 100000 amazon_reviews_us_Books_v1_02.tsv | ./randtest 1 
+  923  head -n 100000 amazon_reviews_us_Books_v1_02.tsv > 100000_amazon
+  924  ./shuf 10 100000_amazon | wc -l
+  925  ./shuf 10 hardLink_pronouns_prepositions.txt | wc -l
+  926  ./shuf 10 hardLink_pronouns_prepositions.txt
+  927  ./shuf 10 hardLink_pron
+  928  time ./shuf 1 amazon_reviews_us_Books_v1_02.tsv > fileshuf.text 
+  929  time ./shuf 1 amazon_reviews_us_Books_v1_02.tsv | wc -l
+  930  time echo amazon_reviews_us_Books_v1_02.tsv > echofile
+  931  ls
+  932  time cat amazon_reviews_us_Books_v1_02.tsv > echofile
+  933  time ./shuf 25 amazon_reviews_us_Books_v1_02.tsv > fileshuf.txt
+  934  head -n 2 fileshuf
+  935  ./shuf 25 
+  936  mv shuf randomsample.sh
+  937  cat randomsample.sh
+  938  vi randomsample.sh
+  939  ./randomsample.sh 1 hardLink_pronouns_prepositions.txt 
+  940  ./randomsample.sh 2 hardLink_pronouns_prepositions.txt 
+  941  ./randomsample.sh 10 hardLink_pronouns_prepositions.txt 
+  942  ./randomsample.sh 10 hardLink_pronouns_prepositions.txt | wc -l
+  943  vi shuf2
+  944  ./shuf2 2 hardLink_pronouns_prepositions.txt 
+  945  chmod 700 shuf2
+  946  ./shuf2 2 hardLink_pronouns_prepositions.txt 
+  947  ./shuf2 0 hardLink_pronouns_prepositions.txt 
+  948  ./shuf2 1 hardLink_pronouns_prepositions.txt 
+  949  ./shuf2 100 hardLink_pronouns_prepositions.txt 
+  950  ./shuf2 0
+  951  ls
+  952  mv input_percentage=$1
+  953  fileInput=$2
+  954  if [ -z "$input_percentage" ] || [ -z "$fileInput" ]; then echo Parameters are missing; exit 1; elif [ "$input_percentage" -le 0 ] || [ "$input_percentage" -ge 100 ]; then echo Integer has to be greater than 0 and less then 100; exit 1; fi
+  955  cd vivian
+  956  ./randtest2 100 hardLink_pronouns_prepositions.txt
+  957  mv randomsample.sh bak_randomsample.sh
+  958  cd vivian
+  959  mv randomsample.sh bak_randomsample.sh
+  960  mv shuf2 randomsample.sh
+  961  ls
+  962  rm echofile 
+  963  rm fileshuf.txt
+  964  rm fileshuf.text 
+  965  rm 100000_amazon 
+  966  ls
+  967  mkdir script_bak
+  968  mv randtest* script_bak
+  969  mv sedtest2 ws8/practice
+  970  ls
+  971  mv hardLink_pronouns_prepositions.txt practice/
+  972  ls
+  973  tmux new-session -t ws9
+  974  mv script_bak ws9
+  975  mv randomsample.sh ws9
+  976  mv bak_randomsample.sh  ws9
+  977  ls
+  978  head -n 1 ws9.txt
+  979  rm ws9.txt
+  980  ls
+  981  cd vivian
+  982  ls
+  983  cd ws9
+  984  ls
+  985  cat randomsample.sh 
+  986  cd ..
+  987  cd practice
+  988  ls
+  989  cd ..
+  990  cd ws9
+  991  ls
+  992  ./randomsample.sh 10 practice/hardLink_pronouns_prepositions.txt
+  993  ./randomsample.sh 10 ../practice/hardLink_pronouns_prepositions.txt
+  994  cat ../practice/hardLink_pronouns_prepositions.txt | head -n 50
+  995  ./randomsample.sh 
+  996  ./randomsample.sh 0
+  997  ./randomsample.sh 101 ../practice/hardLink_pronouns_prepositions.txt
+  998  ./randomsample.sh 0 ../practice/hardLink_pronouns_prepositions.txt
+  999  cd vivian
+ 1000  ls
+ 1001  cd ws9
+ 1002  ls
+ 1003  ls -l
+ 1004  cat ws9.txt 
+ 1005  ls
+ 1006  mv ws9.txt script_bak/
+ 1007  nano ws9.txt
+ 1008  echo "# ws9" >> README.md
+ 1009  git init
+ 1010  git add README.md
+ 1011  git status
+ 1012  git add randomsample.sh 
+ 1013  git add ws9.txt
+ 1014  git status
+ 1015  ls -l
+ 1016  history >  cmds.log

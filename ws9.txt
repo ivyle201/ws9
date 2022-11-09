@@ -1,0 +1,104 @@
+Script started on 2022-11-08 22:02:04-05:00
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+
+
+
+# Write a shell script that samples a random x% of the lines in the input file. 
+# Your shell script's name is "randomsample.sh".  It is called like this:
+#
+#        $ ./randomsample.sh x fileinput
+#
+#
+# The script will print to stdout (echo) a random x% sampling of all lines in the input file.
+
+
+
+[vivian@sjsu ws9]$ vi randomsample.sh
+[vivian@sjsu ws9]$ cat randomsample.sh 
+input_percentage=$1
+fileInput=$2
+
+if [ -z "$input_percentage" ] || [ -z "$fileInput" ]; then
+	echo Parameters are missing;
+	exit 1;
+
+elif [ "$input_percentage" -le 0 ] || [ "$input_percentage" -ge 100 ]; then
+	echo Integer has to be greater than 0 and less then 100
+	exit 1;
+fi
+
+fileInputLength=`wc -l $fileInput | awk '{print $1}'`
+
+
+linecount=`expr $input_percentage \* $fileInputLength / 100`
+
+shuf -n $linecount $2
+
+
+
+
+# Both x and fileinput are required parameters, represented in your script as $1 and $2. 
+# If either of these parameters are missing the script exits.
+
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ chmod 700 randomsample.sh 
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ ./randomsample.sh 
+Parameters are missing
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+
+
+
+# where x is an integer, x > 0 and x < 100 (x range is [1..99] inclusive).
+
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ ./randomsample.sh 0 ../amazon_reviews_us_Books_v1_02.tsv
+Integer has to be greater than 0 and less then 100
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ ./randomsample.sh 200 ../amazon_reviews_us_Books_v1_02.tsv
+Integer has to be greater than 0 and less then 100
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+
+
+
+
+# Test your script on the entire amazon file.
+
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ ./randomsample.sh 1 ../amazon_reviews_us_Books_v1_02.tsv > random_1_percent.tsv
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+
+
+# Random sample of 1% (31055 lines)
+
+[vivian@sjsu ws9]$ wc -l random_1_percent.tsv 
+31055 random_1_percent.tsv
+[vivian@sjsu ws9]$ wc -l ../amazon_reviews_us_Books_v1_02.tsv
+3105521 ../amazon_reviews_us_Books_v1_02.tsv
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ head -n 1 random_1_percent.tsv
+US	51698265	R3RKCKK4BZJQNT	0345418492	363142208	A Spell for Chameleon: (#1) (Xanth)	Books	5	1	1	N	N	Wow!  A fantasy novel adults can enjoy!	I tried reading this book when I was about 10 years old.  It didn't capture my attention then, and I put it aside.  I tried it again now, on a whim, and boy did I like it!  I believe it's more angled towards adults than towards children, and I appreciated it more now.The story is very  entertaining with some impressive plot twists.  Every character had its own  set of adult fears to face, which is what I think made this book  interesting.  Although this book seemed based more on human emotion than  anything else (Trent's insecurities and Bink's disappointment with the life  he knew) it had some neat fantasy/scifi references I appreciated (did this  book take place in Earth's future?  Where did the Mundanes come from?)In  short, I hadn't read a fantasy novel for well over a decade, but Piers  Anthony has stirred my interest in them again.	2000-04-25
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+
+# Random sample of 10% (310552 lines)
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ ./randomsample.sh 10 ../amazon_reviews_us_Books_v1_02.tsv > random_10_percent.tsv
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ wc -l random_10_percent.tsv
+310552 random_10_percent.tsv
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ head -n 1 random_10_percent.tsv 
+US	51390220	RDCYH8RD8D6PQ	0892836385	445947472	Making Choices: Practical Wisdom for Everyday Moral Decisions	Books	4	22	23	N	clarity is power	A very simply written and fun to read book. Like a good teacher, Kreeft has a knack for using just the right analogy to explain a thorny question. Vivid problems vividly pondered. While not an exhaustive philosophical treatise, it's a fine book for most of us common folk, presenting many  problems you will face in your daily life.	2000-02-04
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ 
+[vivian@sjsu ws9]$ exit
+
+Script done on 2022-11-08 22:12:03-05:00
